@@ -13,7 +13,32 @@
         <script>
             // prompt user for name and type
             let userName = prompt('Welcome to Bear Hunter Ninja! Please enter your name to get started: ');
-            let userType = prompt('Who are you: Bear, Ninja, or Hunter?');
+            // type validity
+            // I know this isn't required, but I always like doing this :]
+            let validityCheck = false;
+            while (validityCheck == false) {
+                let userType = prompt('Who are you: Bear, Ninja, or Hunter?');
+                if ((userType.toLowerCase() === "bear") || 
+                    (userType.toLowerCase() === "ninja") || 
+                    (userType.toLowerCase() === "hunter")) {
+                    validityCheck = true;
+                }
+                if (validityCheck == false) {
+                    alert("Please enter a valid input!");
+                }
+            }
+            // computer type
+            var computerType = "";
+            var computerRNG = Math.floor(Math.random() * 3) + 1; // random number between 1 and 3
+            if (computerRNG == 1) {
+                computerType = "Bear";
+            } else if (computerRNG == 2) {
+                computerType = "Ninja";
+            } else if (computerRNG == 3) {
+                computerType = "Hunter"
+            } else { // just in case...
+                computerType = "Bear" // default to bear
+            }
             // console logs
             console.log(userName + ', you picked ' + userType + '!');
             console.log('The computer picked Bear!');
@@ -25,3 +50,4 @@
      </body>
 
 </html>
+
