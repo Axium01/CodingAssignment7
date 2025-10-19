@@ -3,13 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>CA6</title>
+    <title>Coding Assignment 7</title>
+    <meta name="author" content="Milo Wearn">
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
     <body>
         <!-- content in these paragraphs gets overwritten with scripted content -->
         <p id="a1"></p>
-         <p id="a2"></p>
+        <p id="a2"></p>
+        <p id="a3"></p>
         <script>
             // prompt user for name and type
             var userName = prompt('Welcome to Bear Hunter Ninja! Please enter your name to get started: ');
@@ -39,16 +41,52 @@
             } else { // just in case...
                 computerType = "Bear" // default to bear
             }
+            // win logic
+            let winner = "";
+            if (computerType.toLowerCase() === userType.toLowerCase()) {
+                winner = "tie";
+            } else if ((computerType.toLowerCase() === 'bear') && (userType.toLowerCase() === 'ninja')) {
+                winner = "computer";
+            } else if ((computerType.toLowerCase() === 'ninja') && (userType.toLowerCase() === 'bear')) {
+                winner = "user";
+            } else if ((computerType.toLowerCase() === 'ninja') && (userType.toLowerCase() === 'hunter')) {
+                winner = "computer";
+            } else if ((computerType.toLowerCase() === 'hunter') && (userType.toLowerCase() === 'ninja')) {
+                winner = "user";
+            } else if ((computerType.toLowerCase() === 'hunter') && (userType.toLowerCase() === 'bear')) {
+                winner = "computer";
+            } else if ((computerType.toLowerCase() === 'bear') && (userType.toLowerCase() === 'hunter')) {
+                winner = "user";
+            } else {
+                winner = "tie"; //fallback
+            }
+
+            
             // console logs
             console.log(userName + ', you picked ' + userType + '!');
-            console.log('The computer picked Bear!');
-            // changes the content above
+            console.log('The computer picked ' + computerType + '!');
+            // changes the content in the page
             document.getElementById("a1").innerHTML = (userName + ', you picked ' + userType + '!');
-            document.getElementById("a2").innerHTML = ('The computer picked Bear!');
+            document.getElementById("a2").innerHTML = ('The computer picked ' + computerType + '!');
+            switch (winner) {
+                case 'tie':
+                    console.log("It's a tie!");
+                    document.getElementById("a3").innerHTML = ("It's a tie!");
+                    break;
+                case 'user':
+                    console.log("You win!");
+                    document.getElementById("a3").innerHTML = ("You win!");
+                    break;
+                case: 'computer':
+                    console.log("You lose!");
+                    document.getElementById("a3").innerHTML = ("You lose!");
+                    break;
+            }
          </script>
          
      </body>
 
 </html>
+
 
 
