@@ -12,12 +12,12 @@
          <p id="a2"></p>
         <script>
             // prompt user for name and type
-            let userName = prompt('Welcome to Bear Hunter Ninja! Please enter your name to get started: ');
+            var userName = prompt('Welcome to Bear Hunter Ninja! Please enter your name to get started: ');
             // type validity
             // I know this isn't required, but I always like doing this :]
             let validityCheck = false;
             while (validityCheck == false) {
-                let userType = prompt('Who are you: Bear, Ninja, or Hunter?');
+                var userType = prompt('Who are you: Bear, Ninja, or Hunter?');
                 if ((userType.toLowerCase() === "bear") || 
                     (userType.toLowerCase() === "ninja") || 
                     (userType.toLowerCase() === "hunter")) {
@@ -50,4 +50,5 @@
      </body>
 
 </html>
+
 
